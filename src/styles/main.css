@@ -18,6 +18,7 @@
     font-size: 1.2em;
   }
 }
+<<<<<<< HEAD
 
 body {
   color: white;
@@ -107,6 +108,8 @@ h2 {
   opacity: 0;
 }
 
+=======
+>>>>>>> f53d09f5c260fb1e258742d056ff70dfee80a8d8
 body {
   color: white;
   display: flex;
