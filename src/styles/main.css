@@ -7,6 +7,7 @@ body {
   background: #470158;
   user-select: none;
 }
+
 .container {
   position: relative;
   display: flex;
@@ -17,11 +18,13 @@ body {
   background: #944a05;
   padding: 40px 60px;
 }
+
 h2 {
   font-size: 3em;
   color: #fff;
   letter-spacing: 0.1em;
 }
+
 .reset {
   padding: 15px 20px;
   width: 100%;
@@ -33,9 +36,11 @@ h2 {
   cursor: pointer;
   font-weight: 600;
 }
+
 .reset:focus {
   color: blueviolet;
 }
+
 .game {
   width: 430px;
   height: 430px;
@@ -45,6 +50,7 @@ h2 {
   transform-style: preserve-3d;
   perspective: 500px;
 }
+
 .item {
   position: relative;
   height: 100px;
@@ -52,25 +58,30 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-
+  background-color: #f1f1f1; /* Lado de trás da carta com uma cor mais clara */
   font-size: 3em;
-  transform: rotateY(180deg);
-  transition: 0.25s;
+  transform: rotateY(0deg);
+  transition: transform 0.25s;
 }
+
 .item::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: #404040;
-  transition: 0.25s;
-  transform: rotateY(0deg);
+  background: #404040; /* Lado de trás da carta */
   backface-visibility: hidden;
+  transition: transform 0.25s;
 }
+
 .item.boxOpen {
-  transform: rotateY(0deg);
+  transform: rotateY(180deg);
 }
-.boxOpen::after,
+
 .boxMatch::after {
   transform: rotateY(180deg);
+  opacity: 0;
+}
+
+.item.boxOpen::after {
+  opacity: 0;
 }
