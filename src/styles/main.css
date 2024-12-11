@@ -1,41 +1,42 @@
 body {
-  color: white;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background: #470158;
+  color: white;
   user-select: none;
-  margin: 0;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   background: #944a05;
   padding: 20px;
+  max-width: 430px;
   width: 100%;
-  max-width: 500px;
+  box-sizing: border-box;
 }
 
 h2 {
+  margin: 0;
   font-size: 2.5em;
-  color: #fff;
   text-align: center;
+  color: white;
 }
 
 .reset {
   padding: 10px 15px;
   width: 100%;
-  color: #000;
-  background-color: #fff;
-  border: none;
   font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  border: none;
   cursor: pointer;
-  font-weight: 600;
 }
 
 .reset:focus {
@@ -44,20 +45,18 @@ h2 {
 
 .game {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   width: 100%;
-  max-width: 400px;
 }
 
 .item {
-  position: relative;
   background-color: #f1f1f1;
-  aspect-ratio: 1; /* Mantém a proporção quadrada */
-  font-size: 2.5em;
+  aspect-ratio: 1; /* Mantém o quadrado perfeito */
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  font-size: 2em;
   transition: transform 0.25s;
 }
 
@@ -67,37 +66,27 @@ h2 {
   inset: 0;
   background: #404040;
   backface-visibility: hidden;
-  transition: transform 0.25s;
 }
 
 .item.boxOpen {
   transform: rotateY(180deg);
 }
 
-.boxMatch::after {
-  transform: rotateY(180deg);
-  opacity: 0;
-}
-
-.item.boxOpen::after {
-  opacity: 0;
-}
-
 @media screen and (max-width: 600px) {
-  h2 {
-    font-size: 1.8em;
-  }
-
-  .reset {
-    font-size: 1em;
-  }
-
   .game {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular */
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas no celular */
     gap: 8px;
   }
 
   .item {
-    font-size: 1.2em;
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  .reset {
+    font-size: 1em;
   }
 }
