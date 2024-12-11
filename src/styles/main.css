@@ -1,18 +1,87 @@
+body {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #470158;
+  user-select: none;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background: #944a05;
+  padding: 40px 20px;
+}
+
+h2 {
+  font-size: 3em;
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+
+.reset {
+  padding: 15px 20px;
+  width: 100%;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reset:focus {
+  color: blueviolet;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 430px;
+  perspective: 500px;
+}
+
+.item {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  background-color: #f1f1f1;
+  font-size: 3em;
+  transform: rotateY(0deg);
+  transition: transform 0.25s;
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #404040;
+  backface-visibility: hidden;
+  transition: transform 0.25s;
+}
+
+.item.boxOpen {
+  transform: rotateY(180deg);
+}
+
+.boxMatch::after {
+  transform: rotateY(180deg);
+  opacity: 0;
+}
+
+.item.boxOpen::after {
+  opacity: 0;
+}
+
 @media screen and (max-width: 600px) {
-  .game {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 cartas por linha */
-    gap: 10px;
-  }
-
-  .item {
-    width: 80px;
-    height: 80px;
-    font-size: 2em;
-  }
-
   h2 {
     font-size: 2em;
   }
@@ -20,267 +89,4 @@
   .reset {
     font-size: 1.2em;
   }
-}
-
-body {
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #470158;
-  user-select: none;
-}
-
-.container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  background: #944a05;
-  padding: 40px 60px;
-}
-
-h2 {
-  font-size: 3em;
-  color: #fff;
-  letter-spacing: 0.1em;
-}
-
-.reset {
-  padding: 15px 20px;
-  width: 100%;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  font-size: 1.5em;
-  letter-spacing: 01em;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.reset:focus {
-  color: blueviolet;
-}
-
-.game {
-  width: 430px;
-  height: 430px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Ajustado para 4 cartas por linha */
-  gap: 10px;
-  perspective: 500px;
-}
-
-.item {
-  position: relative;
-  height: 100px;
-  width: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f1f1f1;
-  font-size: 3em;
-  transform: rotateY(0deg);
-  transition: transform 0.25s;
-}
-
-.item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #404040;
-  backface-visibility: hidden;
-  transition: transform 0.25s;
-}
-
-.item.boxOpen {
-  transform: rotateY(180deg);
-}
-
-.boxMatch::after {
-  transform: rotateY(180deg);
-  opacity: 0;
-}
-
-.item.boxOpen::after {
-  opacity: 0;
-}
-
-body {
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #470158;
-  user-select: none;
-}
-
-.container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  background: #944a05;
-  padding: 40px 60px;
-}
-
-h2 {
-  font-size: 3em;
-  color: #fff;
-  letter-spacing: 0.1em;
-}
-
-.reset {
-  padding: 15px 20px;
-  width: 100%;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  font-size: 1.5em;
-  letter-spacing: 01em;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.reset:focus {
-  color: blueviolet;
-}
-
-.game {
-  width: 430px;
-  height: 430px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  transform-style: preserve-3d;
-  perspective: 500px;
-}
-
-.item {
-  position: relative;
-  height: 100px;
-  width: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f1f1f1;
-  font-size: 3em;
-  transform: rotateY(0deg);
-  transition: transform 0.25s;
-}
-
-.item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #404040;
-  backface-visibility: hidden;
-  transition: transform 0.25s;
-}
-
-.item.boxOpen {
-  transform: rotateY(180deg);
-}
-
-.boxMatch::after {
-  transform: rotateY(180deg);
-  opacity: 0;
-}
-
-.item.boxOpen::after {
-  opacity: 0;
-}
-
-body {
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #470158;
-  user-select: none;
-}
-
-.container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  background: #944a05;
-  padding: 40px 60px;
-}
-
-h2 {
-  font-size: 3em;
-  color: #fff;
-  letter-spacing: 0.1em;
-}
-
-.reset {
-  padding: 15px 20px;
-  width: 100%;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  font-size: 1.5em;
-  letter-spacing: 01em;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.reset:focus {
-  color: blueviolet;
-}
-
-.game {
-  width: 430px;
-  height: 430px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  transform-style: preserve-3d;
-  perspective: 500px;
-}
-
-.item {
-  position: relative;
-  height: 100px;
-  width: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f1f1f1; /* Lado de trás da carta com uma cor mais clara */
-  font-size: 3em;
-  transform: rotateY(0deg);
-  transition: transform 0.25s;
-}
-
-.item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #404040; /* Lado de trás da carta */
-  backface-visibility: hidden;
-  transition: transform 0.25s;
-}
-
-.item.boxOpen {
-  transform: rotateY(180deg);
-}
-
-.boxMatch::after {
-  transform: rotateY(180deg);
-  opacity: 0;
-}
-
-.item.boxOpen::after {
-  opacity: 0;
 }
